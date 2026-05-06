@@ -5,7 +5,7 @@ let statsData=null;
 
 async function init(){
   let data;
-  try{ const r=await fetch('/api/index'); data=await r.json(); }
+  try{ const r=await fetch('data/index.json'); data=await r.json(); }
   catch(e){ console.error(e); return; }
   const {stats,categories}=data;
   statsData=stats;

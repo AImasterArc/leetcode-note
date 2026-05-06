@@ -318,6 +318,7 @@ async function prefetchMissingDescriptions() {
           probCache[p.id] = { ...q, slug: matched.titleSlug };
           fs.writeFileSync(PROB_CACHE_FILE, JSON.stringify(probCache, null, 2));
           console.log(`[Cache] Successfully cached #${p.id} (${matched.title}).`);
+          generateStaticIndex();
         }
       } else {
         console.log(`[Cache] Could not find LeetCode problem with ID #${p.id}.`);
@@ -331,7 +332,7 @@ async function prefetchMissingDescriptions() {
 }
 
 // ── API ──────────────────────────────────────────────
-app.get('/api/index', (req, res) => {
+function generateStaticIndex() {
   const categories = scanCategories();
   const notes = scanNotes();
   const daily = getDailyFromFiles();
@@ -348,15 +349,32 @@ app.get('/api/index', (req, res) => {
     }
   }
 
-  res.json({
+  const indexData = {
     generated_at: new Date().toISOString(),
     categories, notes,
     stats: { total, easy, medium, hard, by_category: byCategory, daily }
-  });
+  };
+
+  try {
+    const dataDir = path.join(ROOT, 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(dataDir, 'index.json'), JSON.stringify(indexData, null, 2));
+  } catch(e) {
+    console.error('[Index] Failed to write index.json:', e.message);
+  }
+
+  return indexData;
+}
+
+app.get('/api/index', (req, res) => {
+  res.json(generateStaticIndex());
 });
 
 // ── Start ────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`\n  LeetCode Notes running at http://localhost:${PORT}\n`);
+  generateStaticIndex();
   prefetchMissingDescriptions();
 });

@@ -1,9 +1,12 @@
-/* solutions.js */
-let indexData=null,activeItem=null;
+let indexData=null,activeItem=null,problemsCache=null;
 
 async function init(){
-  try{ const r=await fetch('/api/index'); indexData=await r.json(); }
+  try{ const r=await fetch('data/index.json'); indexData=await r.json(); }
   catch(e){ document.getElementById('sidebarNav').innerHTML=`<div style="padding:16px;color:var(--hard);font-size:.8rem">載入失敗</div>`; return; }
+
+  try{ const r=await fetch('data/problems-cache.json'); problemsCache=await r.json(); }
+  catch(e){ console.error('Cache load error:', e); }
+
   buildSidebar();
   setupSearch();
   const hash=location.hash.slice(1);
@@ -98,24 +101,35 @@ async function loadDesc(id, slug){
   const tagsEl=document.getElementById('descTags');
   if(!body||!tagsEl) return;
   try{
-    const r=await fetch(`/api/problem/${id}`);
-    if(!r.ok) throw new Error(`${r.status}`);
-    const q=await r.json();
-    // Tags
-    if(q.topicTags?.length){
-      tagsEl.innerHTML=q.topicTags.map(t=>`<span class="tag-chip">${t.name}</span>`).join('');
-    }
-    // Description
-    if(q.content){
-      // Sanitize LC HTML: strip scripts/styles, then inject
-      const tmp=document.createElement('div');
-      tmp.innerHTML=q.content;
-      tmp.querySelectorAll('script,style').forEach(el=>el.remove());
-      body.innerHTML=`<div class="lc-content">${tmp.innerHTML}</div>`;
-    } else if(q.fileComment){
-      body.innerHTML=`<pre class="file-comment">${esc(q.fileComment)}</pre>`;
+    let q = null;
+    if (problemsCache && problemsCache[id]) {
+      q = problemsCache[id];
     } else {
-      body.innerHTML=`<div class="desc-empty">暫無描述。<a href="https://leetcode.com/problems/${slug}/" target="_blank" class="lc-ext-link">LeetCode ↗</a></div>`;
+      const r=await fetch(`api/problem/${id}`);
+      if(r.ok) q=await r.json();
+    }
+
+    if(q){
+      // Tags
+      if(q.topicTags?.length){
+        tagsEl.innerHTML=q.topicTags.map(t=>`<span class="tag-chip">${t.name}</span>`).join('');
+      } else {
+        tagsEl.innerHTML='';
+      }
+      // Description
+      if(q.content){
+        // Sanitize LC HTML: strip scripts/styles, then inject
+        const tmp=document.createElement('div');
+        tmp.innerHTML=q.content;
+        tmp.querySelectorAll('script,style').forEach(el=>el.remove());
+        body.innerHTML=`<div class="lc-content">${tmp.innerHTML}</div>`;
+      } else if(q.fileComment){
+        body.innerHTML=`<pre class="file-comment">${esc(q.fileComment)}</pre>`;
+      } else {
+        body.innerHTML=`<div class="desc-empty">暫無描述。<a href="https://leetcode.com/problems/${slug}/" target="_blank" class="lc-ext-link">LeetCode ↗</a></div>`;
+      }
+    } else {
+      throw new Error('Not found');
     }
   }catch(e){
     body.innerHTML=`<div class="desc-empty">載入失敗，請<a href="https://leetcode.com/problems/${slug}/" target="_blank" class="lc-ext-link">前往 LeetCode 查看 ↗</a></div>`;
@@ -132,7 +146,7 @@ async function loadCode(filePath){
   const area=document.getElementById('codeArea'); if(!area)return;
   area.innerHTML=`<div style="display:flex;justify-content:center;padding:60px"><div class="loader"></div></div>`;
   try{
-    const r=await fetch('/'+filePath);
+    const r=await fetch(filePath);
     if(!r.ok) throw new Error(`HTTP ${r.status}`);
     const code=await r.text();
     renderCode(code,filePath);

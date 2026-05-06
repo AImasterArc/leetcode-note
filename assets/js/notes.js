@@ -9,7 +9,7 @@ const contentCache = {};
 
 async function init(){
   let data;
-  try{ const r=await fetch('/api/index'); data=await r.json(); }
+  try{ const r=await fetch('data/index.json'); data=await r.json(); }
   catch(e){ document.getElementById('notesList').innerHTML=`<div style="padding:16px;color:var(--hard)">載入失敗</div>`; return; }
 
   allCategories = data.notes; // now array of {name,icon,slug,notes:[]}
@@ -129,7 +129,7 @@ async function loadNote(note, cat){
   let content=contentCache[note.file];
   if(!content){
     try{
-      const r=await fetch('/'+note.file);
+      const r=await fetch(note.file);
       if(!r.ok) throw new Error(`HTTP ${r.status}`);
       content=await r.text();
       contentCache[note.file]=content;
