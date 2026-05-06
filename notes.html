@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>筆記 — LeetCode Notes</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-brand" href="index.html"><div class="nav-logo">⚡</div><span>LC Notes</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-link" href="index.html">🏠 主頁</a></li>
+    <li><a class="nav-link" href="solutions.html">💻 題解</a></li>
+    <li><a class="nav-link active" href="notes.html">📝 筆記</a></li>
+  </ul>
+  <div class="nav-spacer"></div>
+  <button class="mob-btn" id="sidebarToggleBtn" style="display:none">☰ 筆記</button>
+  <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="nav-gh">⭐ GitHub</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="sidebar-layout">
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header" style="padding:10px 10px 6px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:.95rem;font-weight:700">📝 筆記</span>
+        <span class="cat-count" id="noteTotal" style="margin-left:auto">...</span>
+      </div>
+      <input class="sidebar-search" id="noteSearch" type="search" placeholder="搜尋筆記名稱或內容...">
+    </div>
+    <nav class="sidebar-nav" id="notesList">
+      <div style="padding:20px;color:var(--txt2);text-align:center"><div class="loader"></div></div>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="mainContent" style="padding:0;overflow:hidden">
+
+    <!-- Search results panel -->
+    <div id="searchResults" style="display:none;flex:1;overflow-y:auto;padding:24px">
+      <div id="searchResultsContent"></div>
+    </div>
+
+    <!-- Placeholder -->
+    <div class="note-placeholder" id="notePlaceholder">
+      <div class="note-placeholder-icon">📝</div>
+      <div style="font-size:1.1rem;font-weight:600">選擇一篇筆記</div>
+      <div style="font-size:.875rem;color:var(--txt2)">從左側選單選擇主題開始閱讀</div>
+    </div>
+
+    <!-- Note View -->
+    <div class="note-main-wrapper" id="noteView" style="display:none">
+      <div class="note-banner" id="noteBanner">
+        <span class="note-banner-icon" id="bannerIcon">📄</span>
+        <div class="note-banner-title" id="bannerTitle"></div>
+        <div class="note-banner-meta" id="bannerMeta"></div>
+      </div>
+      <div class="note-body-row" style="overflow-y:auto;flex:1">
+        <article class="note-article" id="noteArticle"></article>
+        <aside class="note-toc" id="noteToc" style="display:none">
+          <div class="note-toc-title">目錄</div>
+          <ul class="note-toc-list" id="tocList"></ul>
+        </aside>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="assets/js/notes.js"></script>
+<script>
+  const hamburger=document.getElementById('hamburger');
+  const navLinks=document.getElementById('navLinks');
+  const toggleBtn=document.getElementById('sidebarToggleBtn');
+  const sidebar=document.getElementById('sidebar');
+  const overlay=document.getElementById('sidebarOverlay');
+  hamburger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+  const openSb=()=>{sidebar.classList.add('open');overlay.classList.add('open')};
+  const closeSb=()=>{sidebar.classList.remove('open');overlay.classList.remove('open')};
+  toggleBtn.addEventListener('click',()=>sidebar.classList.contains('open')?closeSb():openSb());
+  overlay.addEventListener('click',closeSb);
+  function checkMobile(){toggleBtn.style.display=window.innerWidth<=768?'flex':'none'}
+  checkMobile();window.addEventListener('resize',checkMobile);
+</script>
+</body>
+</html>

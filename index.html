@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeetCode 刷題筆記 — AImasterArc</title>
+  <meta name="description" content="AImasterArc 的 LeetCode 刷題紀錄，包含每日解題統計、題型分布、解法筆記。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a class="nav-brand" href="index.html">
+    <div class="nav-logo">⚡</div>
+    <span>LC Notes</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-link active" href="index.html">🏠 主頁</a></li>
+    <li><a class="nav-link" href="solutions.html">💻 題解</a></li>
+    <li><a class="nav-link" href="notes.html">📝 筆記</a></li>
+  </ul>
+  <div class="nav-spacer"></div>
+  <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="btn btn-ghost" style="font-size:.8rem;padding:6px 12px">
+    ⭐ GitHub
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-container">
+
+  <!-- Hero -->
+  <div class="hero fade-in">
+    <div class="hero-avatar">🧑‍💻</div>
+    <div class="hero-name">AImasterArc</div>
+    <div class="hero-sub">每日刷題，持續精進 · LeetCode Study Journal</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid fade-in" id="statsGrid">
+    <div class="card stat-card total"><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total</div></div>
+    <div class="card stat-card easy"><div class="stat-num" id="statEasy">—</div><div class="stat-label">Easy</div></div>
+    <div class="card stat-card medium"><div class="stat-num" id="statMedium">—</div><div class="stat-label">Medium</div></div>
+    <div class="card stat-card hard"><div class="stat-num" id="statHard">—</div><div class="stat-label">Hard</div></div>
+  </div>
+
+  <!-- Heatmap -->
+  <div class="card heatmap-section fade-in">
+    <div class="section-title">📅 過去一年每日解題數</div>
+    <div class="heatmap-months" id="heatmapMonths"></div>
+    <div class="heatmap-wrap">
+      <div class="heatmap-days">
+        <span>Sun</span><span>Mon</span><span>Tue</span>
+        <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div class="heatmap-grid" id="heatmapGrid"></div>
+    </div>
+    <div class="heatmap-legend">
+      <span>少</span>
+      <div class="heat-cell lv0"></div>
+      <div class="heat-cell lv1"></div>
+      <div class="heat-cell lv2"></div>
+      <div class="heat-cell lv3"></div>
+      <div class="heat-cell lv4"></div>
+      <span>多</span>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-row fade-in">
+    <div class="card chart-card">
+      <div class="section-title">🥧 難度分布</div>
+      <div class="chart-wrap"><canvas id="diffChart"></canvas></div>
+    </div>
+    <div class="card chart-card">
+      <div class="section-title">📂 題型分布</div>
+      <div class="chart-wrap"><canvas id="catChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Recent -->
+  <div class="card" style="padding:24px" id="recentSection">
+    <div class="section-title">🕐 最近刷的題目</div>
+    <div class="recent-list" id="recentList">
+      <div style="color:var(--txt2);font-size:.875rem">載入中...</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

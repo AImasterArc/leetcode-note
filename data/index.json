@@ -1,0 +1,293 @@
+{
+  "generated_at": "2026-05-06 23:25:03",
+  "categories": [
+    {
+      "name": "Binary Search",
+      "icon": "🔍",
+      "slug": "binary-search",
+      "problems": [
+        {
+          "id": 33,
+          "difficulty": "medium",
+          "title": "Search in Rotated Sorted Array",
+          "solutions": [
+            {
+              "file": "code/binary-search/medium_33.py",
+              "label": "解法 1"
+            }
+          ]
+        },
+        {
+          "id": 704,
+          "difficulty": "easy",
+          "title": "Binary Search",
+          "solutions": [
+            {
+              "file": "code/binary-search/easy_704.py",
+              "label": "解法 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dynamic Programming",
+      "icon": "📊",
+      "slug": "dynamic-programming",
+      "problems": [
+        {
+          "id": 70,
+          "difficulty": "easy",
+          "title": "Climbing Stairs",
+          "solutions": [
+            {
+              "file": "code/dynamic-programming/easy_70.py",
+              "label": "解法 1"
+            }
+          ]
+        },
+        {
+          "id": 322,
+          "difficulty": "medium",
+          "title": "Coin Change",
+          "solutions": [
+            {
+              "file": "code/dynamic-programming/medium_322_1.py",
+              "label": "解法 1"
+            },
+            {
+              "file": "code/dynamic-programming/medium_322_2.py",
+              "label": "解法 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Linked List",
+      "icon": "🔗",
+      "slug": "linked-list",
+      "problems": [
+        {
+          "id": 21,
+          "difficulty": "easy",
+          "title": "Merge Two Sorted Lists",
+          "solutions": [
+            {
+              "file": "code/linked-list/easy_21.py",
+              "label": "解法 1"
+            }
+          ]
+        },
+        {
+          "id": 142,
+          "difficulty": "medium",
+          "title": "Linked List Cycle II",
+          "solutions": [
+            {
+              "file": "code/linked-list/medium_142.py",
+              "label": "解法 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Math",
+      "icon": "🔢",
+      "slug": "math",
+      "problems": [
+        {
+          "id": 4,
+          "difficulty": "hard",
+          "title": "Median of Two Sorted Arrays",
+          "solutions": [
+            {
+              "file": "code/math/hard_4.py",
+              "label": "解法 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tree",
+      "icon": "🌲",
+      "slug": "tree",
+      "problems": [
+        {
+          "id": 102,
+          "difficulty": "medium",
+          "title": "Binary Tree Level Order Traversal",
+          "solutions": [
+            {
+              "file": "code/tree/medium_102.py",
+              "label": "解法 1"
+            }
+          ]
+        },
+        {
+          "id": 104,
+          "difficulty": "easy",
+          "title": "Maximum Depth of Binary Tree",
+          "solutions": [
+            {
+              "file": "code/tree/easy_104.py",
+              "label": "解法 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Two Pointers",
+      "icon": "👆",
+      "slug": "two-pointers",
+      "problems": [
+        {
+          "id": 15,
+          "difficulty": "medium",
+          "title": "3Sum",
+          "solutions": [
+            {
+              "file": "code/two-pointers/medium_15.py",
+              "label": "解法 1"
+            }
+          ]
+        },
+        {
+          "id": 125,
+          "difficulty": "easy",
+          "title": "Valid Palindrome",
+          "solutions": [
+            {
+              "file": "code/two-pointers/easy_125.py",
+              "label": "解法 1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "🔍 Binary Search 解題模板",
+      "slug": "binary-search-template",
+      "file": "note/binary-search-template.md"
+    },
+    {
+      "title": "📊 Dynamic Programming 解題模式",
+      "slug": "dp-patterns",
+      "file": "note/dp-patterns.md"
+    },
+    {
+      "title": "🔗 Linked List 解題技巧",
+      "slug": "linked-list-tips",
+      "file": "note/linked-list-tips.md"
+    },
+    {
+      "title": "👆 Two Pointers & Sliding Window 技巧",
+      "slug": "two-pointers-tricks",
+      "file": "note/two-pointers-tricks.md"
+    }
+  ],
+  "stats": {
+    "total": 11,
+    "easy": 5,
+    "medium": 5,
+    "hard": 1,
+    "by_category": {
+      "Binary Search": 2,
+      "Dynamic Programming": 2,
+      "Linked List": 2,
+      "Math": 1,
+      "Tree": 2,
+      "Two Pointers": 2
+    },
+    "daily": {
+      "2026-05-05": 3,
+      "2026-05-04": 2,
+      "2026-04-30": 4,
+      "2026-04-29": 1,
+      "2026-04-28": 1,
+      "2026-04-22": 1,
+      "2026-04-20": 4,
+      "2026-04-19": 2,
+      "2026-04-18": 3,
+      "2026-04-17": 4,
+      "2026-04-16": 3,
+      "2026-04-10": 3,
+      "2026-04-04": 2,
+      "2026-03-30": 4,
+      "2026-03-28": 3,
+      "2026-03-27": 3,
+      "2026-03-24": 2,
+      "2026-03-22": 4,
+      "2026-03-21": 2,
+      "2026-03-17": 1,
+      "2026-03-14": 3,
+      "2026-03-13": 4,
+      "2026-03-12": 4,
+      "2026-03-11": 2,
+      "2026-03-10": 3,
+      "2026-03-06": 2,
+      "2026-03-04": 1,
+      "2026-03-02": 2,
+      "2026-02-27": 4,
+      "2026-02-24": 1,
+      "2026-02-22": 3,
+      "2026-02-20": 3,
+      "2026-02-15": 2,
+      "2026-02-13": 3,
+      "2026-02-10": 3,
+      "2026-02-05": 3,
+      "2026-02-03": 3,
+      "2026-01-31": 1,
+      "2026-01-30": 1,
+      "2026-01-29": 4,
+      "2026-01-25": 4,
+      "2026-01-23": 4,
+      "2026-01-17": 3,
+      "2026-01-14": 2,
+      "2026-01-13": 1,
+      "2026-01-11": 2,
+      "2026-01-10": 1,
+      "2026-01-09": 1,
+      "2026-01-07": 2,
+      "2026-01-06": 4,
+      "2026-01-05": 2,
+      "2026-01-01": 4,
+      "2025-12-30": 1,
+      "2025-12-28": 4,
+      "2025-12-23": 4,
+      "2025-12-20": 2,
+      "2025-12-19": 4,
+      "2025-12-18": 2,
+      "2025-12-17": 2,
+      "2025-12-15": 1,
+      "2025-12-14": 1,
+      "2025-12-10": 4,
+      "2025-12-06": 1,
+      "2025-12-04": 4,
+      "2025-12-03": 4,
+      "2025-12-02": 3,
+      "2025-12-01": 1,
+      "2025-11-27": 4,
+      "2025-11-24": 1,
+      "2025-11-22": 1,
+      "2025-11-20": 1,
+      "2025-11-16": 1,
+      "2025-11-11": 3,
+      "2025-11-10": 4,
+      "2025-11-09": 3,
+      "2025-11-05": 1,
+      "2025-11-04": 2,
+      "2025-11-02": 3,
+      "2025-10-30": 2,
+      "2025-10-27": 1,
+      "2025-10-23": 2,
+      "2025-10-22": 1,
+      "2025-10-20": 3
+    }
+  }
+}
