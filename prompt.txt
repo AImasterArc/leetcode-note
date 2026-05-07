@@ -1,0 +1,37 @@
+請擔任資深軟體開發工程師，協助我設計「日常紀錄 LeetCode 刷題筆記」的網頁，
+該系統須支援手機與電腦跨平台查看，並在發佈到 GitHub 上:
+
+其中我會準備好的檔案為:
+1. code資料夾底下會有多個資料夾，代表題型 (e.g, Linked List, Dynamic Programming, 資料夾請你幫我命名好)，讀取每個資料夾底下的 .py 檔案，檔案名稱為 leetcode 題號與難度 (e.g., easy_70.py，內容為該題的解法，若有多種解法檔案名後面會有 _1.py, _2.py, ... 的 postfix
+2. 讀取 note 資料夾底下的 .md 檔案，裡面存放相關解題技巧
+
+網頁功能要分為三個區塊頁面
+1. 主頁面: 參考 https://leetcode.cn/u/zhang-ke-qi/ 裡的以解答以及過去一年提交次兩個區塊的呈現，但從提交次數改成每日解題數，以及其他妳覺得適合放在主頁面的數據或資料
+2. leetcode 題解頁面，可以快速點選題型->難度跟題目(造數字順序排列)，點開後對應到 .py 的詳解 (用 code block 來顯示)，若有多個解法也可以快速切換
+3. 筆記頁面: 用好的 visualize 方式呈現裡面的 md 檔案，並且可以快速切換
+
+自動化機制: 每日晚上22:00、00:00自動偵測 repo 是否有更新，有的話才自動推到 github 上 (備註: 目前是以 SSH key 來 clone 下來的)，沒有的話不做事
+
+請自行製造範例並嘗試在網頁跟手機頁面上都能清楚查看的設計
+
+請再修改以下幾點:
+1. 筆記那頁有點醜，請再重新設計
+2. 過去一年每日解題數請填滿該 Block，並確認數量是自動填上的，填法改成該 py檔案的創立時間，現在看起來是亂填的
+
+
+筆記那頁改成也會多一層分類資料夾，對應到 note 底下的資料夾，請先幫我設計一套分類，並再每個分類下個建立五個有用的筆記，
+頁面改的跟題解類似可以展開跟搜尋筆記，並擴展到也可以搜尋該筆記內的內容
+
+題解的部分裡面要加入該題的內容，請認真想一個最 efficient 的辦法來加入
+
+請分析這個 project，將目前有的所有功能與做法存成 MEMORY.md
+
+GitHub Pages 啟用
+Repo Settings → Pages → Source: Deploy from branch → main / / (root)
+
+自動 Push 排程（需管理員 PowerShell 執行一次）
+powershell
+$p = "C:\Users\f2289\Arc\AI_Code\leetcode-note"
+$a = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NonInteractive -WindowStyle Hidden -File `"$p\scripts\auto_push.ps1`""
+Register-ScheduledTask -TaskName "LeetCode-AutoPush-2200" -Action $a -Trigger (New-ScheduledTaskTrigger -Daily -At "22:00") -RunLevel Highest -Force
+Register-ScheduledTask -TaskName "LeetCode-AutoPush-0000" -Action $a -Trigger (New-ScheduledTaskTrigger -Daily -At "00:00") -RunLevel Highest -Force
