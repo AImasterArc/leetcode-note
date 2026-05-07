@@ -20,9 +20,10 @@
     <li><a class="nav-link active" href="index.html">🏠 主頁</a></li>
     <li><a class="nav-link" href="solutions.html">💻 題解</a></li>
     <li><a class="nav-link" href="notes.html">📝 筆記</a></li>
+    <li class="mob-only" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.08); padding-top:12px;"><a class="nav-link" href="https://github.com/AImasterArc/leetcode-note" target="_blank" style="color:var(--accent); background:rgba(99,179,237,0.1); border-radius:8px">⭐ GitHub Repository</a></li>
   </ul>
   <div class="nav-spacer"></div>
-  <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="btn btn-ghost" style="font-size:.8rem;padding:6px 12px">
+  <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="nav-gh">
     ⭐ GitHub
   </a>
   <button class="hamburger" id="hamburger" aria-label="選單">
@@ -50,13 +51,18 @@
   <!-- Heatmap -->
   <div class="card heatmap-section fade-in">
     <div class="section-title">📅 過去一年每日解題數</div>
-    <div class="heatmap-months" id="heatmapMonths"></div>
-    <div class="heatmap-wrap">
-      <div class="heatmap-days">
-        <span>Sun</span><span>Mon</span><span>Tue</span>
-        <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    <div class="heatmap-swipe-hint">
+      <span>👈 左右滑動檢視完整歷史 👉</span>
+    </div>
+    <div class="heatmap-scroll-wrap" id="heatmapScrollWrap">
+      <div class="heatmap-months" id="heatmapMonths"></div>
+      <div class="heatmap-wrap">
+        <div class="heatmap-days">
+          <span>Sun</span><span>Mon</span><span>Tue</span>
+          <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div class="heatmap-grid" id="heatmapGrid"></div>
       </div>
-      <div class="heatmap-grid" id="heatmapGrid"></div>
     </div>
     <div class="heatmap-legend">
       <span>少</span>
@@ -95,8 +101,11 @@
 <script src="assets/js/main.js"></script>
 <script>
   // Hamburger
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
   });
 </script>
 </body>

@@ -89,17 +89,90 @@ def scan_notes():
     note_dir = ROOT / "note"
     if not note_dir.exists():
         return []
-    notes = []
+
+    note_meta = {
+        "patterns":        {"name": "演算法模板", "icon": "📐"},
+        "data-structures": {"name": "資料結構",   "icon": "🗂️"},
+        "algorithms":      {"name": "演算法",     "icon": "⚡"},
+        "tips":            {"name": "解題技巧",   "icon": "💡"},
+        "problem-types":   {"name": "題型分析",   "icon": "📋"},
+        "general":         {"name": "一般筆記",   "icon": "📚"},
+    }
+
+    categories_map = {}
+
+    # 1. Scan subdirectories
+    for cat_dir in sorted(note_dir.iterdir()):
+        if not cat_dir.is_dir():
+            continue
+        slug = cat_dir.name
+        meta = note_meta.get(slug, {"name": slug.replace("-", " ").title(), "icon": "📁"})
+
+        notes = []
+        for f in sorted(cat_dir.glob("*.md")):
+            title = f.stem.replace("-", " ").title()
+            preview = ""
+            try:
+                content = f.read_text(encoding="utf-8")
+                lines = content.splitlines()
+                if lines and lines[0].startswith("#"):
+                    title = lines[0].lstrip("# ").strip()
+                clean = re.sub(r"```[\s\S]*?```", "", content)
+                clean = re.sub(r"[#*`>\-|]", "", clean)
+                preview = " ".join(clean.split())[:200]
+            except Exception:
+                pass
+            notes.append({"title": title, "slug": f.stem, "file": f"note/{slug}/{f.name}", "preview": preview})
+
+        if notes:
+            categories_map[slug] = {
+                "name": meta["name"],
+                "icon": meta["icon"],
+                "slug": slug,
+                "notes": notes
+            }
+
+    # 2. Scan root md files and put them under 'general'
+    general_notes = []
     for f in sorted(note_dir.glob("*.md")):
         title = f.stem.replace("-", " ").title()
+        preview = ""
         try:
-            first = f.read_text(encoding="utf-8").splitlines()[0]
-            if first.startswith("#"):
-                title = first.lstrip("# ").strip()
+            content = f.read_text(encoding="utf-8")
+            lines = content.splitlines()
+            if lines and lines[0].startswith("#"):
+                title = lines[0].lstrip("# ").strip()
+            clean = re.sub(r"```[\s\S]*?```", "", content)
+            clean = re.sub(r"[#*`>\-|]", "", clean)
+            preview = " ".join(clean.split())[:200]
         except Exception:
             pass
-        notes.append({"title": title, "slug": f.stem, "file": f"note/{f.name}"})
-    return notes
+        general_notes.append({"title": title, "slug": f.stem, "file": f"note/{f.name}", "preview": preview})
+
+    if general_notes:
+        slug = "general"
+        meta = note_meta[slug]
+        if slug in categories_map:
+            categories_map[slug]["notes"].extend(general_notes)
+        else:
+            categories_map[slug] = {
+                "name": meta["name"],
+                "icon": meta["icon"],
+                "slug": slug,
+                "notes": general_notes
+            }
+
+    # Sort categories to match standard order
+    sorted_slugs = ["patterns", "data-structures", "algorithms", "tips", "problem-types", "general"]
+    sorted_cats = []
+    for slug in sorted_slugs:
+        if slug in categories_map:
+            sorted_cats.append(categories_map[slug])
+    for slug, cat in sorted(categories_map.items()):
+        if slug not in sorted_slugs:
+            sorted_cats.append(cat)
+
+    return sorted_cats
 
 
 def compute_stats(cats, daily):

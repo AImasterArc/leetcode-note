@@ -148,31 +148,77 @@ async function loadNote(note, cat){
 }
 
 function buildToc(article){
-  const toc=document.getElementById('noteToc');
-  const tocList=document.getElementById('tocList');
-  const headings=article.querySelectorAll('h2,h3');
-  if(headings.length<2){ toc.style.display='none'; return; }
-  toc.style.display='block';
-  tocList.innerHTML='';
+  const toc = document.getElementById('noteToc');
+  const tocList = document.getElementById('tocList');
+  const mobTocBtn = document.getElementById('tocToggleBtn');
+  const mobTocList = document.getElementById('tocDrawerList');
+  
+  const headings = article.querySelectorAll('h2,h3');
+  
+  if(headings.length < 2){
+    toc.style.display = 'none';
+    if(mobTocBtn) mobTocBtn.style.display = 'none';
+    return;
+  }
+  
+  toc.style.display = 'block';
+  if(mobTocBtn && window.innerWidth <= 768) mobTocBtn.style.display = 'flex';
+  
+  tocList.innerHTML = '';
+  if(mobTocList) mobTocList.innerHTML = '';
+  
   headings.forEach((h,i)=>{
-    h.id=`hn-${i}`;
-    const li=document.createElement('li');
-    li.className=`note-toc-item ${h.tagName==='H3'?'h3':''}`;
-    li.textContent=h.textContent;
-    li.addEventListener('click',()=>{ h.scrollIntoView({behavior:'smooth',block:'start'}); document.querySelectorAll('.note-toc-item').forEach(x=>x.classList.remove('active')); li.classList.add('active'); });
+    h.id = `hn-${i}`;
+    
+    // Create Desktop TOC Item
+    const li = document.createElement('li');
+    li.className = `note-toc-item ${h.tagName==='H3'?'h3':''}`;
+    li.textContent = h.textContent;
+    li.addEventListener('click',()=>{
+      h.scrollIntoView({behavior:'smooth',block:'start'});
+      document.querySelectorAll('.note-toc-item').forEach(x=>x.classList.remove('active'));
+      li.classList.add('active');
+    });
     tocList.appendChild(li);
+    
+    // Create Mobile TOC Item
+    if(mobTocList){
+      const mLi = document.createElement('li');
+      mLi.className = `note-toc-item ${h.tagName==='H3'?'h3':''}`;
+      mLi.textContent = h.textContent;
+      mLi.addEventListener('click',()=>{
+        h.scrollIntoView({behavior:'smooth',block:'start'});
+        document.querySelectorAll('.note-toc-item').forEach(x=>x.classList.remove('active'));
+        mLi.classList.add('active');
+        
+        // Auto close drawer on select!
+        const tocDrawer = document.getElementById('tocDrawer');
+        const tocOverlay = document.getElementById('tocDrawerOverlay');
+        if (tocDrawer) tocDrawer.classList.remove('open');
+        if (tocOverlay) tocOverlay.classList.remove('open');
+      });
+      mobTocList.appendChild(mLi);
+    }
   });
+  
   // Scroll spy
-  const bodyRow=document.querySelector('.note-body-row');
+  const bodyRow = document.querySelector('.note-body-row');
   if(bodyRow){
-    const handler=()=>{
-      const items=tocList.querySelectorAll('.note-toc-item');
-      let active=0;
-      headings.forEach((h,i)=>{ if(h.getBoundingClientRect().top<120) active=i; });
-      items.forEach((li,i)=>li.classList.toggle('active',i===active));
+    const handler = ()=>{
+      let active = 0;
+      headings.forEach((h,i)=>{ if(h.getBoundingClientRect().top < 120) active = i; });
+      
+      // Update both desktop and mobile items by matching text content or index
+      const dItems = tocList.querySelectorAll('.note-toc-item');
+      dItems.forEach((li,i)=>li.classList.toggle('active',i===active));
+      
+      if(mobTocList){
+        const mItems = mobTocList.querySelectorAll('.note-toc-item');
+        mItems.forEach((li,i)=>li.classList.toggle('active',i===active));
+      }
     };
     bodyRow.removeEventListener('scroll',bodyRow._spy);
-    bodyRow._spy=handler;
+    bodyRow._spy = handler;
     bodyRow.addEventListener('scroll',handler,{passive:true});
   }
 }

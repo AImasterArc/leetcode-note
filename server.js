@@ -84,13 +84,16 @@ const NOTE_CATEGORY_META = {
   'algorithms':     { name: '演算法',     icon: '⚡' },
   'tips':           { name: '解題技巧',   icon: '💡' },
   'problem-types':  { name: '題型分析',   icon: '📋' },
+  'general':        { name: '一般筆記',   icon: '📚' },
 };
 
 function scanNotes() {
   const noteDir = path.join(ROOT, 'note');
   if (!fs.existsSync(noteDir)) return [];
 
-  const categories = [];
+  const categoriesMap = {};
+
+  // 1. Scan subdirectories
   for (const entry of fs.readdirSync(noteDir).sort()) {
     const full = path.join(noteDir, entry);
     if (!fs.statSync(full).isDirectory()) continue;
@@ -109,14 +112,52 @@ function scanNotes() {
         const content = fs.readFileSync(filePath, 'utf-8');
         const firstH = content.match(/^#+\s+(.+)$/m);
         if (firstH) title = firstH[1].trim();
-        // Strip markdown syntax for preview
         preview = content.replace(/```[\s\S]*?```/g,'').replace(/[#*`>\-|]/g,'').replace(/\s+/g,' ').slice(0,200);
       } catch(_) {}
       notes.push({ title, slug, file: `note/${entry}/${fname}`, preview });
     }
-    if (notes.length) categories.push({ name: meta.name, icon: meta.icon, slug: entry, notes });
+    if (notes.length) {
+      categoriesMap[entry] = { name: meta.name, icon: meta.icon, slug: entry, notes };
+    }
   }
-  return categories;
+
+  // 2. Scan root md files and put them under 'general'
+  const generalNotes = [];
+  for (const fname of fs.readdirSync(noteDir).filter(f=>f.endsWith('.md')).sort()) {
+    const slug = fname.replace('.md','');
+    const filePath = path.join(noteDir, fname);
+    let title = slug.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    let preview = '';
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const firstH = content.match(/^#+\s+(.+)$/m);
+      if (firstH) title = firstH[1].trim();
+      preview = content.replace(/```[\s\S]*?```/g,'').replace(/[#*`>\-|]/g,'').replace(/\s+/g,' ').slice(0,200);
+    } catch(_) {}
+    generalNotes.push({ title, slug, file: `note/${fname}`, preview });
+  }
+
+  if (generalNotes.length) {
+    const slug = 'general';
+    const meta = NOTE_CATEGORY_META[slug];
+    if (categoriesMap[slug]) {
+      categoriesMap[slug].notes = categoriesMap[slug].notes.concat(generalNotes);
+    } else {
+      categoriesMap[slug] = { name: meta.name, icon: meta.icon, slug, notes: generalNotes };
+    }
+  }
+
+  // Sort categories
+  const sortedSlugs = ['patterns', 'data-structures', 'algorithms', 'tips', 'problem-types', 'general'];
+  const sortedCats = [];
+  for (const slug of sortedSlugs) {
+    if (categoriesMap[slug]) sortedCats.push(categoriesMap[slug]);
+  }
+  for (const slug of Object.keys(categoriesMap).sort()) {
+    if (!sortedSlugs.includes(slug)) sortedCats.push(categoriesMap[slug]);
+  }
+
+  return sortedCats;
 }
 
 

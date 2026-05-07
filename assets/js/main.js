@@ -84,6 +84,14 @@ function renderHeatmap(daily){
     html+=`<div class="heat-cell ${lv}" title="${c.date}: ${c.count} 題"></div>`;
   }
   grid.innerHTML=html;
+
+  // Auto-scroll to far-right on mobile so latest activity is immediately visible
+  setTimeout(() => {
+    const scrollContainer = document.getElementById('heatmapScrollWrap');
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = scrollContainer.scrollWidth;
+    }
+  }, 50);
 }
 
 function renderDiffChart(stats){

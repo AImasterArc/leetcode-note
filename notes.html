@@ -15,9 +15,9 @@
     <li><a class="nav-link" href="index.html">🏠 主頁</a></li>
     <li><a class="nav-link" href="solutions.html">💻 題解</a></li>
     <li><a class="nav-link active" href="notes.html">📝 筆記</a></li>
+    <li class="mob-only" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.08); padding-top:12px;"><a class="nav-link" href="https://github.com/AImasterArc/leetcode-note" target="_blank" style="color:var(--accent); background:rgba(99,179,237,0.1); border-radius:8px">⭐ GitHub Repository</a></li>
   </ul>
   <div class="nav-spacer"></div>
-  <button class="mob-btn" id="sidebarToggleBtn" style="display:none">☰ 筆記</button>
   <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="nav-gh">⭐ GitHub</a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
@@ -71,23 +71,65 @@
   </main>
 </div>
 
+<!-- Bottom Floating Action Buttons (FAB) for Mobile -->
+<button class="fab-btn note-fab-left" id="sidebarToggleBtn" style="display:none">📁 筆記分類</button>
+<button class="fab-btn" id="tocToggleBtn" style="display:none">📋 快速目錄</button>
+
+<!-- Mobile Slide-up Table of Contents Drawer -->
+<div class="toc-drawer" id="tocDrawer" style="display:none">
+  <div class="toc-drawer-header">
+    <span class="toc-drawer-title">📋 筆記目錄</span>
+    <button class="toc-drawer-close" id="tocDrawerClose">✕</button>
+  </div>
+  <div class="toc-drawer-body">
+    <ul class="note-toc-list" id="tocDrawerList"></ul>
+  </div>
+</div>
+<div class="toc-drawer-overlay" id="tocDrawerOverlay"></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 <script src="assets/js/notes.js"></script>
 <script>
-  const hamburger=document.getElementById('hamburger');
-  const navLinks=document.getElementById('navLinks');
-  const toggleBtn=document.getElementById('sidebarToggleBtn');
-  const sidebar=document.getElementById('sidebar');
-  const overlay=document.getElementById('sidebarOverlay');
-  hamburger.addEventListener('click',()=>navLinks.classList.toggle('open'));
-  const openSb=()=>{sidebar.classList.add('open');overlay.classList.add('open')};
-  const closeSb=()=>{sidebar.classList.remove('open');overlay.classList.remove('open')};
-  toggleBtn.addEventListener('click',()=>sidebar.classList.contains('open')?closeSb():openSb());
-  overlay.addEventListener('click',closeSb);
-  function checkMobile(){toggleBtn.style.display=window.innerWidth<=768?'flex':'none'}
-  checkMobile();window.addEventListener('resize',checkMobile);
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  const toggleBtn = document.getElementById('sidebarToggleBtn');
+  const sidebar   = document.getElementById('sidebar');
+  const overlay   = document.getElementById('sidebarOverlay');
+
+  // Mobile TOC elements
+  const tocToggleBtn = document.getElementById('tocToggleBtn');
+  const tocDrawer    = document.getElementById('tocDrawer');
+  const tocCloseBtn  = document.getElementById('tocDrawerClose');
+  const tocOverlay   = document.getElementById('tocDrawerOverlay');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  const openSb  = () => { sidebar.classList.add('open'); overlay.classList.add('open'); };
+  const closeSb = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+  toggleBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSb() : openSb());
+  overlay.addEventListener('click', closeSb);
+
+  // TOC Mobile Drawer toggles
+  const openTOC  = () => { tocDrawer.classList.add('open'); tocOverlay.classList.add('open'); };
+  const closeTOC = () => { tocDrawer.classList.remove('open'); tocOverlay.classList.remove('open'); };
+  tocToggleBtn.addEventListener('click', openTOC);
+  tocCloseBtn.addEventListener('click', closeTOC);
+  tocOverlay.addEventListener('click', closeTOC);
+
+  function checkMobile() {
+    toggleBtn.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+    if (window.innerWidth > 768) {
+      tocToggleBtn.style.display = 'none';
+      closeTOC();
+    }
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
 </script>
 </body>
 </html>

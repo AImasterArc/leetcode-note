@@ -20,10 +20,10 @@
     <li><a class="nav-link" href="index.html">🏠 主頁</a></li>
     <li><a class="nav-link active" href="solutions.html">💻 題解</a></li>
     <li><a class="nav-link" href="notes.html">📝 筆記</a></li>
+    <li class="mob-only" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.08); padding-top:12px;"><a class="nav-link" href="https://github.com/AImasterArc/leetcode-note" target="_blank" style="color:var(--accent); background:rgba(99,179,237,0.1); border-radius:8px">⭐ GitHub Repository</a></li>
   </ul>
   <div class="nav-spacer"></div>
-  <button class="btn btn-ghost" id="sidebarToggleBtn" style="font-size:.8rem;padding:6px 12px;display:none">☰ 題目</button>
-  <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="btn btn-ghost" style="font-size:.8rem;padding:6px 12px">⭐ GitHub</a>
+  <a href="https://github.com/AImasterArc/leetcode-note" target="_blank" class="nav-gh">⭐ GitHub</a>
   <button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button>
 </nav>
 
@@ -53,6 +53,8 @@
 
 </div>
 
+<button class="fab-btn" id="sidebarToggleBtn" style="display:none">🔍 篩選題目</button>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 <script src="assets/js/solutions.js"></script>
@@ -63,7 +65,10 @@
   const sidebar   = document.getElementById('sidebar');
   const overlay   = document.getElementById('sidebarOverlay');
 
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
 
   function openSidebar()  { sidebar.classList.add('open'); overlay.classList.add('open'); }
   function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
