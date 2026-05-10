@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T16:10:11.629Z",
+  "generated_at": "2026-05-11 00:00:03",
   "categories": [
     {
       "name": "Binary Search",
@@ -179,31 +179,31 @@
           "title": "🔄 Backtracking 回溯模板",
           "slug": "backtracking-template",
           "file": "note/patterns/backtracking-template.md",
-          "preview": " 🔄 Backtracking 回溯模板 核心框架 常見題型 1. 子集（Subsets 78） 2. 排列（Permutations 46） 3. 組合（Combinations 77） 4. 有重複元素（去重） 棋盤類（NQueens 51） 剪枝策略 策略 說明 排序 + 跳重 解決重複元素 提前 return 不可能得到解 計數剪枝 剩餘元素不夠 約束剪枝 違反約束直接跳 "
+          "preview": "🔄 Backtracking 回溯模板 核心框架 常見題型 1. 子集（Subsets 78） 2. 排列（Permutations 46） 3. 組合（Combinations 77） 4. 有重複元素（去重） 棋盤類（NQueens 51） 剪枝策略 策略 說明 排序 + 跳重 解決重複元素 提前 return 不可能得到解 計數剪枝 剩餘元素不夠 約束剪枝 違反約束直接跳"
         },
         {
           "title": "🔍 Binary Search 解題模板",
           "slug": "binary-search-template",
           "file": "note/patterns/binary-search-template.md",
-          "preview": " 🔍 Binary Search 解題模板 為什麼容易出 Bug？ Edge case 很多: left ≤ right 還是 left < right？mid + 1 還是 mid？ 解法: 選一種模板，徹底記熟。 模板一：左閉右閉 [left, right]（推薦） 模板二：找左邊界（找第一個 = target） 模板三：找右邊界（找最後一個 <= target） 進階：在答案空間上 Bin"
+          "preview": "🔍 Binary Search 解題模板 為什麼容易出 Bug？ Edge case 很多: left ≤ right 還是 left < right？mid + 1 還是 mid？ 解法: 選一種模板，徹底記熟。 模板一：左閉右閉 [left, right]（推薦） 模板二：找左邊界（找第一個 = target） 模板三：找右邊界（找最後一個 <= target） 進階：在答案空間上 Binar"
         },
         {
           "title": "📐 DP 解題模式",
           "slug": "dp-patterns",
           "file": "note/patterns/dp-patterns.md",
-          "preview": " 📐 DP 解題模式 黃金三問 1. 狀態定義: dp[i] 代表什麼？ 2. 轉移方程: 怎麼從之前的狀態得到？ 3. 初始條件: dp[0], dp[1] 是多少？ 1. 線性 DP（1D） 空間優化（只需前幾個狀態）: 例題: Climbing Stairs (70), House Robber (198), Fibonacci 2. 0/1 背包 3. 完全背包（無限次使用） 例題: C"
+          "preview": "📐 DP 解題模式 黃金三問 1. 狀態定義: dp[i] 代表什麼？ 2. 轉移方程: 怎麼從之前的狀態得到？ 3. 初始條件: dp[0], dp[1] 是多少？ 1. 線性 DP（1D） 空間優化（只需前幾個狀態）: 例題: Climbing Stairs (70), House Robber (198), Fibonacci 2. 0/1 背包 3. 完全背包（無限次使用） 例題: Coi"
         },
         {
           "title": "🪟 Sliding Window 完整指南",
           "slug": "sliding-window",
           "file": "note/patterns/sliding-window.md",
-          "preview": " 🪟 Sliding Window 完整指南 核心思想 維護一個「窗口」滑過陣列/字串，避免重複計算內部狀態。 時間複雜度：O(n)，遠優於暴力的 O(n²)。 標準模板 例題解析 最長無重複子字串 (3) 最小覆蓋子字串 (76) 固定大小窗口 判斷是否適合 Sliding Window ✅ 找「連續子陣列/子字串」的最值 ✅ 問題有「單調性」（窗口擴大，條件變好/壞） ✅ 窗口的 state"
+          "preview": "🪟 Sliding Window 完整指南 核心思想 維護一個「窗口」滑過陣列/字串，避免重複計算內部狀態。 時間複雜度：O(n)，遠優於暴力的 O(n²)。 標準模板 例題解析 最長無重複子字串 (3) 最小覆蓋子字串 (76) 固定大小窗口 判斷是否適合 Sliding Window ✅ 找「連續子陣列/子字串」的最值 ✅ 問題有「單調性」（窗口擴大，條件變好/壞） ✅ 窗口的 state 可"
         },
         {
           "title": "👆 Two Pointers & Sliding Window 技巧",
           "slug": "two-pointers-tricks",
           "file": "note/patterns/two-pointers-tricks.md",
-          "preview": " 👆 Two Pointers & Sliding Window 技巧 Two Pointers 分類 1. 對撞指針（Opposite Direction） 適用：有序陣列、找對稱條件 例題: Two Sum II (167), 3Sum (15), Container With Most Water (11) 2. 快慢指針（Floyd's Cycle Detection） 例題: Link"
+          "preview": "👆 Two Pointers & Sliding Window 技巧 Two Pointers 分類 1. 對撞指針（Opposite Direction） 適用：有序陣列、找對稱條件 例題: Two Sum II (167), 3Sum (15), Container With Most Water (11) 2. 快慢指針（Floyd's Cycle Detection） 例題: Linked"
         }
       ]
     },
@@ -216,31 +216,31 @@
           "title": "🗃️ Hash Table 完整指南",
           "slug": "hash-table-guide",
           "file": "note/data-structures/hash-table-guide.md",
-          "preview": " 🗃️ Hash Table 完整指南 Python 實作 常見使用場景 1. 計頻率 2. 紀錄索引 3. 分組（Grouping） 4. 前綴和 + Hash Map 選型建議 需求 用什麼 計數 Counter 分組/鄰接表 defaultdict(list) 計數 + 自動0 defaultdict(int) 有序字典 OrderedDict 雙向查找 兩個 dict "
+          "preview": "🗃️ Hash Table 完整指南 Python 實作 常見使用場景 1. 計頻率 2. 紀錄索引 3. 分組（Grouping） 4. 前綴和 + Hash Map 選型建議 需求 用什麼 計數 Counter 分組/鄰接表 defaultdict(list) 計數 + 自動0 defaultdict(int) 有序字典 OrderedDict 雙向查找 兩個 dict"
         },
         {
           "title": "🏔️ Heap / Priority Queue 指南",
           "slug": "heap-priority-queue",
           "file": "note/data-structures/heap-priority-queue.md",
-          "preview": " 🏔️ Heap / Priority Queue 指南 Python heapq（最小堆） 常見題型 1. Top K 最大/最小 2. 合併 K 個有序陣列 3. 第 K 大元素（215） 4. 帶權重的優先佇列（Dijkstra） 使用時機 ✅ 需要反覆取最小/最大值 ✅ Top K 問題 ✅ 合併有序數列 ✅ 帶優先級的任務調度 ✅ Greedy 中需要每次選最優 "
+          "preview": "🏔️ Heap / Priority Queue 指南 Python heapq（最小堆） 常見題型 1. Top K 最大/最小 2. 合併 K 個有序陣列 3. 第 K 大元素（215） 4. 帶權重的優先佇列（Dijkstra） 使用時機 ✅ 需要反覆取最小/最大值 ✅ Top K 問題 ✅ 合併有序數列 ✅ 帶優先級的任務調度 ✅ Greedy 中需要每次選最優"
         },
         {
           "title": "🔗 Linked List 解題技巧",
           "slug": "linked-list-tips",
           "file": "note/data-structures/linked-list-tips.md",
-          "preview": " 🔗 Linked List 解題技巧 必備技巧 1. Dummy Head（虛擬頭節點） 用途：避免處理 head 被刪除的邊界情況。 2. 找中點（快慢指針） 3. 反轉鏈結串列 4. 合併兩個有序鏈結串列 常見問題解法 問題 技巧 偵測環 快慢指針 找環入口 快慢相遇後，慢指針從 head 重新走 倒數第 k 個節點 快指針先走 k 步 回文鏈結串列 找中點 + 反轉後半 + 比較 重排鏈"
+          "preview": "🔗 Linked List 解題技巧 必備技巧 1. Dummy Head（虛擬頭節點） 用途：避免處理 head 被刪除的邊界情況。 2. 找中點（快慢指針） 3. 反轉鏈結串列 4. 合併兩個有序鏈結串列 常見問題解法 問題 技巧 偵測環 快慢指針 找環入口 快慢相遇後，慢指針從 head 重新走 倒數第 k 個節點 快指針先走 k 步 回文鏈結串列 找中點 + 反轉後半 + 比較 重排鏈結串"
         },
         {
           "title": "📚 Stack & Queue 解題技巧",
           "slug": "stack-and-queue",
           "file": "note/data-structures/stack-and-queue.md",
-          "preview": " 📚 Stack & Queue 解題技巧 Stack（後進先出 LIFO） 單調棧（Monotonic Stack） 核心：棧內元素保持單調遞增或遞減，用於找「下一個更大/小元素」。 例題: Daily Temperatures (739), Largest Rectangle in Histogram (84) Queue（先進先出 FIFO） BFS 模板 單調佇列（Monotonic D"
+          "preview": "📚 Stack & Queue 解題技巧 Stack（後進先出 LIFO） 單調棧（Monotonic Stack） 核心：棧內元素保持單調遞增或遞減，用於找「下一個更大/小元素」。 例題: Daily Temperatures (739), Largest Rectangle in Histogram (84) Queue（先進先出 FIFO） BFS 模板 單調佇列（Monotonic Deq"
         },
         {
           "title": "🌲 Tree 解題基礎",
           "slug": "tree-basics",
           "file": "note/data-structures/tree-basics.md",
-          "preview": " 🌲 Tree 解題基礎 常用遍歷 DFS（遞迴） BFS（層序） 常見 DFS 思路 傳值向下（Topdown） 傳值向上（Bottomup） 帶全域變數 例題: Diameter of Binary Tree (543), Binary Tree Maximum Path Sum (124) BST 特性 快速判斷題型 關鍵字 思路 最大深度/最小深度 Bottomup DFS 路徑和 To"
+          "preview": "🌲 Tree 解題基礎 常用遍歷 DFS（遞迴） BFS（層序） 常見 DFS 思路 傳值向下（Topdown） 傳值向上（Bottomup） 帶全域變數 例題: Diameter of Binary Tree (543), Binary Tree Maximum Path Sum (124) BST 特性 快速判斷題型 關鍵字 思路 最大深度/最小深度 Bottomup DFS 路徑和 Topd"
         }
       ]
     },
@@ -253,31 +253,31 @@
           "title": "🔢 Bit Manipulation 位元運算",
           "slug": "bit-manipulation",
           "file": "note/algorithms/bit-manipulation.md",
-          "preview": " 🔢 Bit Manipulation 位元運算 基礎操作 常用技巧 XOR 應用（核心性質：a^a=0, a^0=a） 子集枚舉（位掩碼） 常見技巧速查 技巧 程式碼 用途 消最低1 n & (n1) 計算1個數、判斷2的冪 取最低1 n & (n) Fenwick Tree XOR消除 a ^= b 找只出現一次的數 位掩碼 1 << k 子集枚舉 "
+          "preview": "🔢 Bit Manipulation 位元運算 基礎操作 常用技巧 XOR 應用（核心性質：a^a=0, a^0=a） 子集枚舉（位掩碼） 常見技巧速查 技巧 程式碼 用途 消最低1 n & (n1) 計算1個數、判斷2的冪 取最低1 n & (n) Fenwick Tree XOR消除 a ^= b 找只出現一次的數 位掩碼 1 << k 子集枚舉"
         },
         {
           "title": "🕸️ 圖論遍歷指南",
           "slug": "graph-traversal",
           "file": "note/algorithms/graph-traversal.md",
-          "preview": " 🕸️ 圖論遍歷指南 建圖 DFS BFS（最短路徑） 拓撲排序（Kahn's — 課程表 207） Dijkstra（帶權最短路） 選型 問題 方法 連通分量 DFS/BFS/UnionFind 最短路（無權） BFS 最短路（有權非負） Dijkstra 拓撲順序 / 判斷有環 Kahn's / DFS+color 最小生成樹 Prim / Kruskal "
+          "preview": "🕸️ 圖論遍歷指南 建圖 DFS BFS（最短路徑） 拓撲排序（Kahn's — 課程表 207） Dijkstra（帶權最短路） 選型 問題 方法 連通分量 DFS/BFS/UnionFind 最短路（無權） BFS 最短路（有權非負） Dijkstra 拓撲順序 / 判斷有環 Kahn's / DFS+color 最小生成樹 Prim / Kruskal"
         },
         {
           "title": "💡 Greedy 貪心策略",
           "slug": "greedy-strategy",
           "file": "note/algorithms/greedy-strategy.md",
-          "preview": " 💡 Greedy 貪心策略 適用條件 1. 最優子結構：局部最優能推出全局最優 2. 貪心選擇性質：每步選最優不影響後續最優解 活動選擇（不重疊區間） 跳躍遊戲（55） 跳躍遊戲 II（45）— 最少步數 常見 Greedy 題目 題號 題目 貪心策略 45 Jump Game II 每步選最遠可達 55 Jump Game 維護最遠可達 435 Nonoverlapping Interval"
+          "preview": "💡 Greedy 貪心策略 適用條件 1. 最優子結構：局部最優能推出全局最優 2. 貪心選擇性質：每步選最優不影響後續最優解 活動選擇（不重疊區間） 跳躍遊戲（55） 跳躍遊戲 II（45）— 最少步數 常見 Greedy 題目 題號 題目 貪心策略 45 Jump Game II 每步選最遠可達 55 Jump Game 維護最遠可達 435 Nonoverlapping Intervals "
         },
         {
           "title": "⚡ 排序演算法比較",
           "slug": "sorting-comparison",
           "file": "note/algorithms/sorting-comparison.md",
-          "preview": " ⚡ 排序演算法比較 快速比較表 演算法 最好 平均 最壞 空間 穩定 Bubble O(n) O(n²) O(n²) O(1) ✅ Insertion O(n) O(n²) O(n²) O(1) ✅ Merge O(n log n) O(n log n) O(n log n) O(n) ✅ Quick O(n log n) O(n log n) O(n²) O(log n) ❌ Heap O(n"
+          "preview": "⚡ 排序演算法比較 快速比較表 演算法 最好 平均 最壞 空間 穩定 Bubble O(n) O(n²) O(n²) O(1) ✅ Insertion O(n) O(n²) O(n²) O(1) ✅ Merge O(n log n) O(n log n) O(n log n) O(n) ✅ Quick O(n log n) O(n log n) O(n²) O(log n) ❌ Heap O(n "
         },
         {
           "title": "⚡ Union-Find (並查集)",
           "slug": "union-find",
           "file": "note/algorithms/union-find.md",
-          "preview": " ⚡ UnionFind (並查集) 模板 應用場景 計算連通分量數 字符串/值映射到整數 動態連通性 例題 題目 技巧 Number of Islands (200) 每個格子是節點 Graph Valid Tree (261) 判斷有無環 Accounts Merge (721) Email 去重 Redundant Connection (684) 找多餘邊 時間複雜度 操作 複雜度 fin"
+          "preview": "⚡ UnionFind (並查集) 模板 應用場景 計算連通分量數 字符串/值映射到整數 動態連通性 例題 題目 技巧 Number of Islands (200) 每個格子是節點 Graph Valid Tree (261) 判斷有無環 Accounts Merge (721) Email 去重 Redundant Connection (684) 找多餘邊 時間複雜度 操作 複雜度 find"
         }
       ]
     },
@@ -290,31 +290,31 @@
           "title": "💡 時間/空間複雜度速查表",
           "slug": "complexity-cheatsheet",
           "file": "note/tips/complexity-cheatsheet.md",
-          "preview": " 💡 時間/空間複雜度速查表 常見演算法複雜度 演算法 時間 空間 備註 Binary Search O(log n) O(1) 需已排序 BFS/DFS O(V+E) O(V) 圖的遍歷 Merge Sort O(n log n) O(n) 穩定排序 Quick Sort O(n log n)avg O(log n) 不穩定 Heap Sort O(n log n) O(1) 不穩定 Dijk"
+          "preview": "💡 時間/空間複雜度速查表 常見演算法複雜度 演算法 時間 空間 備註 Binary Search O(log n) O(1) 需已排序 BFS/DFS O(V+E) O(V) 圖的遍歷 Merge Sort O(n log n) O(n) 穩定排序 Quick Sort O(n log n)avg O(log n) 不穩定 Heap Sort O(n log n) O(1) 不穩定 Dijkst"
         },
         {
           "title": "🐛 Debug 排查策略",
           "slug": "debugging-strategies",
           "file": "note/tips/debugging-strategies.md",
-          "preview": " 🐛 Debug 排查策略 常見 Bug 類型 現象 可能原因 結果少1/多1 offbyone 邊界錯誤 無限循環 指針/索引沒更新 結果差一倍 重複計算（如無向圖計兩次） 測試部分通過 邊界 case 沒考慮到 TLE 複雜度太高 / 可用 memoization Debug 步驟 常見 offbyone 場景 鏈結串列 Debug 技巧 遞迴 Debug 心態 Bug 很正常，不要慌 先縮"
+          "preview": "🐛 Debug 排查策略 常見 Bug 類型 現象 可能原因 結果少1/多1 offbyone 邊界錯誤 無限循環 指針/索引沒更新 結果差一倍 重複計算（如無向圖計兩次） 測試部分通過 邊界 case 沒考慮到 TLE 複雜度太高 / 可用 memoization Debug 步驟 常見 offbyone 場景 鏈結串列 Debug 技巧 遞迴 Debug 心態 Bug 很正常，不要慌 先縮小問"
         },
         {
           "title": "✅ 面試解題 Checklist",
           "slug": "interview-checklist",
           "file": "note/tips/interview-checklist.md",
-          "preview": " ✅ 面試解題 Checklist 收到題目後（2 分鐘） [ ] 看清楚題意，確認輸入輸出格式 [ ] 詢問邊界：n=0, n=1, 負數, 重複值？ [ ] 確認資料範圍（決定複雜度上限） [ ] 能否有額外空間？ 設計解法（5 分鐘） [ ] Brute force 先說出來（不管對不對） [ ] 從 brute force 找優化方向 [ ] 說出時間/空間複雜度 [ ] 得到面試官確認再"
+          "preview": "✅ 面試解題 Checklist 收到題目後（2 分鐘） [ ] 看清楚題意，確認輸入輸出格式 [ ] 詢問邊界：n=0, n=1, 負數, 重複值？ [ ] 確認資料範圍（決定複雜度上限） [ ] 能否有額外空間？ 設計解法（5 分鐘） [ ] Brute force 先說出來（不管對不對） [ ] 從 brute force 找優化方向 [ ] 說出時間/空間複雜度 [ ] 得到面試官確認再開"
         },
         {
           "title": "🧠 解題思路心法",
           "slug": "problem-solving-mindset",
           "file": "note/tips/problem-solving-mindset.md",
-          "preview": " 🧠 解題思路心法 卡題時的思考流程 1. 暴力解 → 想出最直觀的解法（哪怕是 O(n³)） 2. 找重複計算 → 有沒有東西被算了多次？ → DP/Memoization 3. 找規律 → 有沒有單調性？ → Binary Search / Two Pointers 4. 換角度 → 從結果往回推？從小問題往上堆？ 5. 類比 → 像哪道你做過的題？ 題型識別關鍵字 關鍵字 可能解法 最短路"
+          "preview": "🧠 解題思路心法 卡題時的思考流程 1. 暴力解 → 想出最直觀的解法（哪怕是 O(n³)） 2. 找重複計算 → 有沒有東西被算了多次？ → DP/Memoization 3. 找規律 → 有沒有單調性？ → Binary Search / Two Pointers 4. 換角度 → 從結果往回推？從小問題往上堆？ 5. 類比 → 像哪道你做過的題？ 題型識別關鍵字 關鍵字 可能解法 最短路/最"
         },
         {
           "title": "🐍 Python LeetCode 技巧",
           "slug": "python-tips",
           "file": "note/tips/python-tips.md",
-          "preview": " 🐍 Python LeetCode 技巧 常用 Oneliners 常用型別技巧 字符串技巧 數學技巧 性能陷阱 "
+          "preview": "🐍 Python LeetCode 技巧 常用 Oneliners 常用型別技巧 字符串技巧 數學技巧 性能陷阱"
         }
       ]
     },
@@ -327,31 +327,31 @@
           "title": "🔍 Graph Problems 圖論題型",
           "slug": "graph-problems",
           "file": "note/problem-types/graph-problems.md",
-          "preview": " 🔍 Graph Problems 圖論題型 BFS 找最短路（無權） 判斷有向圖是否有環（DFS 三色標記） 二分圖判斷（785） 常見圖論題型 題號 題目 方法 207 Course Schedule 拓撲排序 200 Number of Islands DFS/BFS/UF 127 Word Ladder BFS 785 Is Graph Bipartite BFS 染色 743 Netw"
+          "preview": "🔍 Graph Problems 圖論題型 BFS 找最短路（無權） 判斷有向圖是否有環（DFS 三色標記） 二分圖判斷（785） 常見圖論題型 題號 題目 方法 207 Course Schedule 拓撲排序 200 Number of Islands DFS/BFS/UF 127 Word Ladder BFS 785 Is Graph Bipartite BFS 染色 743 Networ"
         },
         {
           "title": "⏱️ Interval 區間問題",
           "slug": "interval-problems",
           "file": "note/problem-types/interval-problems.md",
-          "preview": " ⏱️ Interval 區間問題 常見操作 1. 合併區間（56） 2. 插入區間（57） 3. 會議室問題（最少會議室數 253） 4. 無重疊區間（435，貪心） 差分陣列（區間加減值） 選型指南 問題類型 方法 合併重疊 排序 + 掃描 最多不重疊 按結束時間貪心 最少房間/資源 Heap 模擬 區間更新 差分陣列 "
+          "preview": "⏱️ Interval 區間問題 常見操作 1. 合併區間（56） 2. 插入區間（57） 3. 會議室問題（最少會議室數 253） 4. 無重疊區間（435，貪心） 差分陣列（區間加減值） 選型指南 問題類型 方法 合併重疊 排序 + 掃描 最多不重疊 按結束時間貪心 最少房間/資源 Heap 模擬 區間更新 差分陣列"
         },
         {
           "title": "📋 矩陣問題解題指南",
           "slug": "matrix-problems",
           "file": "note/problem-types/matrix-problems.md",
-          "preview": " 📋 矩陣問題解題指南 常見技巧 1. 方向陣列（DFS/BFS） 2. 原地標記（省空間） 3. 螺旋矩陣（54） 4. 旋轉矩陣（48） Island 類問題模板 常見題型對照 題目 技巧 Number of Islands (200) DFS/BFS + 原地標記 Spiral Matrix (54) 四邊界收縮 Rotate Image (48) 轉置 + 翻轉 Search 2D Ma"
+          "preview": "📋 矩陣問題解題指南 常見技巧 1. 方向陣列（DFS/BFS） 2. 原地標記（省空間） 3. 螺旋矩陣（54） 4. 旋轉矩陣（48） Island 類問題模板 常見題型對照 題目 技巧 Number of Islands (200) DFS/BFS + 原地標記 Spiral Matrix (54) 四邊界收縮 Rotate Image (48) 轉置 + 翻轉 Search 2D Matr"
         },
         {
           "title": "🔤 字串問題技巧",
           "slug": "string-problems",
           "file": "note/problem-types/string-problems.md",
-          "preview": " 🔤 字串問題技巧 常用操作 回文判斷 Anagram 判斷 字串比較模板 常見字串題型 題目 技巧 Valid Palindrome (125) 雙指針 Longest Palindromic Substring (5) 中心展開 / DP Group Anagrams (49) Counter 作 key Longest Common Prefix (14) 逐字符比較 Valid Pare"
+          "preview": "🔤 字串問題技巧 常用操作 回文判斷 Anagram 判斷 字串比較模板 常見字串題型 題目 技巧 Valid Palindrome (125) 雙指針 Longest Palindromic Substring (5) 中心展開 / DP Group Anagrams (49) Counter 作 key Longest Common Prefix (14) 逐字符比較 Valid Parent"
         },
         {
           "title": "🌲 Tree Traversal 深度解析",
           "slug": "tree-traversal-guide",
           "file": "note/problem-types/tree-traversal-guide.md",
-          "preview": " 🌲 Tree Traversal 深度解析 四種遍歷方式對比 遍歷 順序 典型用途 前序 根 → 左 → 右 複製樹、序列化 中序 左 → 根 → 右 BST 排序輸出 後序 左 → 右 → 根 刪除樹、計算大小 層序 按層從上到下 最小深度、鋸齒形 迭代版遍歷（不用遞迴） Morris Traversal（O(1) 空間） 常用 DFS 計算 "
+          "preview": "🌲 Tree Traversal 深度解析 四種遍歷方式對比 遍歷 順序 典型用途 前序 根 → 左 → 右 複製樹、序列化 中序 左 → 根 → 右 BST 排序輸出 後序 左 → 右 → 根 刪除樹、計算大小 層序 按層從上到下 最小深度、鋸齒形 迭代版遍歷（不用遞迴） Morris Traversal（O(1) 空間） 常用 DFS 計算"
         }
       ]
     },
@@ -364,25 +364,25 @@
           "title": "🔍 Binary Search 解題模板",
           "slug": "binary-search-template",
           "file": "note/binary-search-template.md",
-          "preview": " 🔍 Binary Search 解題模板 為什麼 Binary Search 容易出 Bug？ Edge case 很多: left <= right 還是 left < right？mid + 1 還是 mid？ 解法: 選一種模板，徹底記熟，不要每次重新推導。 模板一: 左閉右閉 [left, right]（推薦） 記憶口訣: 閉閉用 <=，更新都加減 1 模板二: 找左邊界（找第一個 ="
+          "preview": "🔍 Binary Search 解題模板 為什麼 Binary Search 容易出 Bug？ Edge case 很多: left <= right 還是 left < right？mid + 1 還是 mid？ 解法: 選一種模板，徹底記熟，不要每次重新推導。 模板一: 左閉右閉 [left, right]（推薦） 記憶口訣: 閉閉用 <=，更新都加減 1 模板二: 找左邊界（找第一個 = t"
         },
         {
           "title": "📊 Dynamic Programming 解題模式",
           "slug": "dp-patterns",
           "file": "note/dp-patterns.md",
-          "preview": " 📊 Dynamic Programming 解題模式 解題框架 DP 題的黃金三問： 1. 狀態定義: dp[i] 代表什麼？ 2. 轉移方程: dp[i] 怎麼從之前的狀態得到？ 3. 初始條件: dp[0], dp[1] 等是多少？ 常見 DP 模式 1. 線性 DP（1D） 例題: Climbing Stairs, House Robber, Fibonacci 空間優化: 若只需要前幾"
+          "preview": "📊 Dynamic Programming 解題模式 解題框架 DP 題的黃金三問： 1. 狀態定義: dp[i] 代表什麼？ 2. 轉移方程: dp[i] 怎麼從之前的狀態得到？ 3. 初始條件: dp[0], dp[1] 等是多少？ 常見 DP 模式 1. 線性 DP（1D） 例題: Climbing Stairs, House Robber, Fibonacci 空間優化: 若只需要前幾個狀"
         },
         {
           "title": "🔗 Linked List 解題技巧",
           "slug": "linked-list-tips",
           "file": "note/linked-list-tips.md",
-          "preview": " 🔗 Linked List 解題技巧 核心模式 1. Dummy Head（啞節點） 需要操作 head 可能改變的情況，都用 dummy head 避免邊界處理。 使用場景: Merge Two Sorted Lists, Remove Nth Node, Partition List 2. Fast & Slow Pointers（龜兔指針） 用途 fast 速度 slow 速度 找中點 "
+          "preview": "🔗 Linked List 解題技巧 核心模式 1. Dummy Head（啞節點） 需要操作 head 可能改變的情況，都用 dummy head 避免邊界處理。 使用場景: Merge Two Sorted Lists, Remove Nth Node, Partition List 2. Fast & Slow Pointers（龜兔指針） 用途 fast 速度 slow 速度 找中點 2 "
         },
         {
           "title": "👆 Two Pointers & Sliding Window 技巧",
           "slug": "two-pointers-tricks",
           "file": "note/two-pointers-tricks.md",
-          "preview": " 👆 Two Pointers & Sliding Window 技巧 Two Pointers 兩種形式 形式一: 對撞指針（Opposite Direction） 左右指針從兩端往中間走，適合有序陣列或回文類問題。 例題: Two Sum II, Valid Palindrome, Container With Most Water, 3Sum 形式二: 同向快慢指針（Same Direct"
+          "preview": "👆 Two Pointers & Sliding Window 技巧 Two Pointers 兩種形式 形式一: 對撞指針（Opposite Direction） 左右指針從兩端往中間走，適合有序陣列或回文類問題。 例題: Two Sum II, Valid Palindrome, Container With Most Water, 3Sum 形式二: 同向快慢指針（Same Directio"
         }
       ]
     }
@@ -401,7 +401,7 @@
       "Two Pointers": 2
     },
     "daily": {
-      "2026-05-06": 12
+      "2026-05-07": 12
     }
   }
 }
